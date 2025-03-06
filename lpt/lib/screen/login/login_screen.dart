@@ -21,22 +21,24 @@ class LoginPage extends StatelessWidget {
   }
 
   Widget _fixedLogo() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: 10.0,
-      children: <Widget>[
-        const SizedBox.shrink(),
-        Center(child: Image.asset('assets/splash_logo.png', width: 50.0, height: 50.0)),
-        const SizedBox.shrink(),
-        const Center(
-          child: Text(
-            'LỊCH PHONG THỦY 2019',
-            style: TextStyle(color: Color(0xFF0C6A1B), fontWeight: FontWeight.w600, fontSize: 24.0),
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 10.0,
+        children: <Widget>[
+          const SizedBox.shrink(),
+          Center(child: Image.asset('assets/splash_logo.png', width: 50.0, height: 50.0)),
+          const SizedBox.shrink(),
+          const Center(
+            child: Text(
+              'LỊCH PHONG THỦY 2019',
+              style: TextStyle(color: Color(0xFF0C6A1B), fontWeight: FontWeight.w600, fontSize: 24.0),
+            ),
           ),
-        ),
-        const SizedBox(height: 10.0),
-      ],
+          const SizedBox(height: 10.0),
+        ],
+      ),
     );
   }
 
@@ -50,7 +52,7 @@ class LoginPage extends StatelessWidget {
           children: [
             Flexible(flex: 1, child: _fixedLogo()),
             Flexible(flex: 2, child: Center(child: _loginFacebook())),
-            Flexible(flex: 1, child: SizedBox.shrink()),
+            const Flexible(flex: 1, child: SizedBox.shrink()),
           ],
         ),
       ),
