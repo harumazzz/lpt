@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lpt/repository/facebook_repository.dart';
+import 'package:lpt/service/service_locator.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -16,7 +18,12 @@ class LoginPage extends StatelessWidget {
         'Đăng nhập bằng Facebook',
         style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 16.0),
       ),
-      onPressed: () {},
+      onPressed: () async {
+        final userCredential = await ServiceLocator.value<FacebookRepository>().signIn();
+        if (userCredential != null) {
+          debugPrint("Login successful: ${userCredential.user?.displayName}");
+        }
+      },
     );
   }
 

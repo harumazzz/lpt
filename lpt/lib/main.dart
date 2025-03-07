@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:lpt/screen/login/login_screen.dart';
+import 'package:lpt/service/service_locator.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  ServiceLocator.injectEnvironment();
   runApp(const Application());
 }
 
