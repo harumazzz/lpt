@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lpt/repository/facebook_repository.dart';
+import 'package:lpt/screen/home/home_screen.dart';
 import 'package:lpt/service/service_locator.dart';
+import 'dart:developer' as developer;
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
-  Widget _loginFacebook() {
+  Widget _loginFacebook(BuildContext context) {
     return TextButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: Color(0xFF4666B3),
@@ -19,9 +21,11 @@ class LoginPage extends StatelessWidget {
         style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 16.0),
       ),
       onPressed: () async {
+        toHome() => Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen()));
         final userCredential = await ServiceLocator.value<FacebookRepository>().signIn();
         if (userCredential != null) {
-          debugPrint("Login successful: ${userCredential.user?.displayName}");
+          developer.log('Credential: $userCredential');
+          toHome();
         }
       },
     );
@@ -35,11 +39,11 @@ class LoginPage extends StatelessWidget {
         spacing: 10.0,
         children: <Widget>[
           const SizedBox.shrink(),
-          Center(child: Image.asset('assets/splash_logo.png', width: 50.0, height: 50.0)),
+          Center(child: Image.asset('assets/logo.png', width: 80.0, height: 80.0)),
           const SizedBox.shrink(),
           const Center(
             child: Text(
-              'LỊCH PHONG THỦY 2019',
+              'LỊCH PHONG THỦY 2025',
               style: TextStyle(color: Color(0xFF0C6A1B), fontWeight: FontWeight.w600, fontSize: 24.0),
             ),
           ),
@@ -58,7 +62,7 @@ class LoginPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Flexible(flex: 1, child: _fixedLogo()),
-            Flexible(flex: 2, child: Center(child: _loginFacebook())),
+            Flexible(flex: 2, child: Center(child: _loginFacebook(context))),
             const Flexible(flex: 1, child: SizedBox.shrink()),
           ],
         ),

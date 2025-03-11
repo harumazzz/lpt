@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:lpt/api/facebook_api.dart';
 
 class FacebookRepository {
@@ -6,7 +5,7 @@ class FacebookRepository {
 
   const FacebookRepository(this._facebookApi);
 
-  Future<UserCredential?> signIn() async {
+  Future<Map<String, dynamic>?> signIn() async {
     return await _facebookApi.signIn();
   }
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "907007457152",
+    "project_id": "lpt-r2s",
+    "storage_bucket": "lpt-r2s.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907007457152:android:5303ce86bfd74d383d7365",
+        "android_client_info": {
+          "package_name": "com.example.lpt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz3DfxQLDXRpgPQi5Quzq-NgIh9-K2Rgc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

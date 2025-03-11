@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Lịch Phong Thủy</string>
     <string name="facebook_app_id">1520390329348131</string>
+    <string name="fb_login_protocol_scheme">fb1520390329348131</string>
     <string name="facebook_client_token">570de546e3ad9cc02e00a6a765edfc94</string>
 </resources>
